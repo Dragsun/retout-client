@@ -8,51 +8,56 @@
 </head>
 
 <body>
-	<div class="container">
-		<div class="bubble client">
-			Fiche client
-			<div class="newClient">
-				<div>Info client</div>
-				<input type="text" name="nom" id="nom" placeholder="Nom">
-				<input type="text" name="num" id="num" placeholder="Numero de telephone">
-				<input type="text" name="mail" id="mail" placeholder="Mail">
+	<form action="../src/index.html" method="post">
+		<div class="container">
+			<div class="bubble client">
+				Fiche client
+				<div class="newClient">
+					<div>Info client</div>
+					<input type="text" name="nom" id="nom" placeholder="Nom">
+					<input type="text" name="num" id="num" placeholder="Numero de telephone">
+					<input type="email" name="mail" id="mail" placeholder="Mail">
+				</div>
 			</div>
+			<div class="bubble commande">
+				<div class="commande">
+					<div>Info commande</div>
+					<input type="text" name="ref" id="ref1" placeholder="Ref commande">
+					<input type="date" name="date" id="date1" placeholder="Date reception">
+					<input type="text" name="motif" id="motif1" placeholder="Motif de retout">
+					<input type="text" name="link" id="link1" placeholder="lien drive">
+					<input type="text" name="refProduit" id="refProduit1" placeholder="Ref produit">
+					<input type="number" name="qty" id="qty1" placeholder="quantitee">
+				</div>
+				<div class="addProduct">
+					+
+				</div>
+			</div>
+			<div class="bubble info-commande">
+				Info traitement
+				<div class="commande">
+					<div>Info commande</div>
+					<input type="text" name="commentaire" id="commentaire1" placeholder="Etat">
+					<input type="date" name="dateStock" id="dateStock1" placeholder="date stock">
+				</div>
+				<div class="addProduct">
+					+
+				</div>
+				<div class="commande">
+					<input type="text" name="stock" id="stock" placeholder="Stock">
+					<div for="hist">Historique etat</div>
+					<input type="text" name="hist" id="hist" placeholder="Historique Etat" readonly>
+					<input type="text" name="traitement" id="traitement" placeholder="Traitement final">
+				</div>
+			</div>
+			<button class="register button bubble" onclick="test()">
+				Enregistrer
+			</button>
 		</div>
-		<div class="bubble commande">
-			<div class="commande">
-				<div>Info commande</div>
-				<input type="text" name="ref" id="ref1" placeholder="Ref commande">
-				<input type="text" name="date" id="date1" placeholder="Date reception">
-				<input type="text" name="motif" id="motif1" placeholder="Motif de retout">
-				<input type="text" name="link" id="link1" placeholder="lien drive">
-				<input type="text" name="refProduit" id="refProduit1" placeholder="Ref produit">
-				<input type="text" name="qty" id="qty1" placeholder="quantitee">
-			</div>
-			<div class="addProduct">
-				+
-			</div>
-		</div>
-		<div class="bubble info-commande">
-			Info traitement
-			<div class="commande">
-				<div>Info commande</div>
-				<input type="text" name="ref" id="ref1" placeholder="Etat">
-				<input type="text" name="date" id="date1" placeholder="commentaire">
-			</div>
-			<div class="addProduct">
-				+
-			</div>
-			<div class="commande">
-				<input type="text" name="ref" id="stock" placeholder="Stock">
-				<div for="hist">Historique etat</div>
-				<input type="text" name="hist" id="hist" placeholder="Historique Etat">
-				<input type="text" name="traitement" id="traitement" placeholder="Traitement final">
-			</div>
-		</div>
-		<button class="register button bubble">
-			Enregistrer
-		</button>
-	</div>
+	</form>
 </body>
+
+<script src="../connection/connection.js"></script>
+<script src="../src/newClient.js"></script>
 
 </html>
