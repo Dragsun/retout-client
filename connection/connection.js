@@ -6,6 +6,6 @@ global.connection = mysql.createConnection({
 	port	 : '3306',
     user     : 'root',
     password : '', // or the original password : 'apaswword'
-    database : 'test',
+    database : 'nodejs',
     connectTimeout : 30000
 });

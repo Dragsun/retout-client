@@ -39,7 +39,7 @@ $('form').on('submit', function(e){
 		port	 : '3306',
 		user     : 'root',
 		password : '', // or the original password : 'apaswword'
-		database : 'test',
+		database : 'nodejs',
 		connectTimeout : 30000,
 		flag: [161]
 	});
@@ -62,31 +62,29 @@ $('form').on('submit', function(e){
         }
     });
 
-    var $query=`INSERT INTO Commande VALUES
+    var $query = `INSERT INTO Commande VALUES
 					('${myData.ref}',
-					NULL,
 					'${myData.motif}',
 					'${myData.link}',
-					NULL,
 					'${myData.nom}',
 					'${myData.num}',
 					'${myData.mail}');
-					
-					INSERT INTO commentaire VALUES
+				`;
+
+	var $query2 = `INSERT INTO commentaire VALUES
 					('${myData.commentaire}',
 					'${myData.date}',
-					'${myData.ref}');
-					
-					INSERT INTO Produit VALUES
-					('${myData.ref_produit}',
-					'${myData.qte_produit}',
-					'${myData.ref}');
+					'${myData.ref}');`
 
-					INSERT INTO etat VALUES
+	var $query3 = `INSERT INTO Produit VALUES
+					('${myData.ref}',
+					'${myData.ref_produit}',
+					'${myData.qte_produit}');`
+
+	var $query4 = `INSERT INTO etat VALUES
 					('${myData.etat}',
 					'${myData.ref}',
-					'${myData.date}')
-				`;
+					'${myData.date}')`
 
 	connection.query($query, function(err, rows, fields) {
 		if(err){

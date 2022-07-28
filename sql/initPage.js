@@ -47,8 +47,8 @@ function initTable(){
                     <td>${element.lien_drive}</td>
                     <td class="popup">🗨️</td>
                     <td class="fiche">😃</td>
-                    <td class="telephone">📞</td>
-                    <td class="photo">📸</td>
+                    <td class="telephone" val="${element.num}">📞</td>
+                    <a class="photo" href="${element.link}">📸</a>
                 </tr>
             `;
             console.log(`${element.date}`);
