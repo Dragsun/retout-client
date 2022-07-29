@@ -74,7 +74,7 @@ $('form').on('submit', function(e){
 	var $query2 = `INSERT INTO commentaire VALUES
 					('${myData.commentaire}',
 					'${myData.date}',
-					'${myData.ref}');`
+					'${myData.ref_commande}');`
 
 	var $query3 = `INSERT INTO Produit VALUES
 					('${myData.ref}',
@@ -83,23 +83,51 @@ $('form').on('submit', function(e){
 
 	var $query4 = `INSERT INTO etat VALUES
 					('${myData.etat}',
-					'${myData.ref}',
+					'${myData.ref_commande}',
 					'${myData.date}')`
 
 	connection.query($query, function(err, rows, fields) {
 		if(err){
 			console.log("An error ocurred performing the query.");
 			console.log(err);
+			if (err.code === 'ER_DUP_ENTRY') {
+				alert('Duplicate entry detected');
+			}
 			return;
 		}
 
 		console.log("Query succesfully executed", rows);
 	});
 
+	connection.query($query2, function(err, rows, fields) {
+		if(err){
+			console.log("An error ocurred performing the query.");
+			console.log(err);
+
+		}
+		console.log("Query succesfully executed", rows);
+	});
+
+	connection.query($query3, function(err, rows, fields) {
+		if(err){
+			console.log("An error ocurred performing the query.");
+			console.log(err);
+			return;
+		}
+		console.log("Query succesfully executed", rows);
+	});
+
+	connection.query($query4, function(err, rows, fields) {
+		if(err){
+			console.log("An error ocurred performing the query.");
+			console.log(err);
+			return;
+		}
+		console.log("Query succesfully executed", rows);
+	});
+
 	connection.end(function(){
         // The connection has been closed
     });
-
-	alert();
 
 })

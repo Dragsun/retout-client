@@ -1,4 +1,6 @@
 const $ = require('jquery');
+const shell = require('electron').shell;
+
 
 const formatDate = (date) => {
     let d = new Date(date);
@@ -12,6 +14,10 @@ const formatDate = (date) => {
         day = '0' + day;
     }
     return [day, month, year].join('-');
+}
+
+function shellOpen(link) {
+    shell.openExternal('link}')
 }
 
 function initTable(){
@@ -31,6 +37,7 @@ function initTable(){
         if(err){
             console.log("An error ocurred performing the query.");
             console.log(err);
+            $('table').html(err);
             return;
         }
 
@@ -48,7 +55,7 @@ function initTable(){
                     <td class="popup">🗨️</td>
                     <td class="fiche">😃</td>
                     <td class="telephone" val="${element.num}">📞</td>
-                    <a class="photo" href="${element.link}">📸</a>
+                    <td class="photo" onclick="shellOpen(${element.link})">📸</td>
                 </tr>
             `;
             console.log(`${element.date}`);
